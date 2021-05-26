@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo filter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Photo Filter</h1>
+    </header>
+    <main class="main">
+      <div class="filter">
+        <label class="filter__element">
+          Blur:
+          <input class="filter__range-slider blur" data-output="blur" data-units="px" type="range" min="0" max="10" value="0" />
+          <output class="filter__result" name="result" id="blur">0</output>
+        </label>
+        <label class="filter__element">
+          Invert:
+          <input class="filter__range-slider invert" data-output="invert" data-units="%" type="range" min="0" max="100" value="0" />
+          <output class="filter__result" name="result" id="invert">0</output>
+        </label>
+        <label class="filter__element">
+          Sepia:
+          <input class="filter__range-slider sepia" data-output="sepia" data-units="%" type="range" min="0" max="100" value="0" />
+          <output class="filter__result" name="result" id="sepia">0</output>
+        </label>
+        <label class="filter__element">
+          Saturate:
+          <input class="filter__range-slider saturate" data-output="saturate" data-units="%" type="range" min="0" max="200" value="100" />
+          <output class="filter__result" name="result" id="saturate">100</output>
+        </label>
+        <label class="filter__element">
+          Hue rotate:
+          <input class="filter__range-slider hue-rotate" data-output="hue" data-units="deg" type="range" min="0" max="360" value="0" />
+          <output class="filter__result" name="result" id="hue">0</output>
+        </label>
+      </div>
+      <div class="editor">
+        <div class="editor__buttons">
+          <button class="btn reset">Reset</button>
+          <button class="btn btn--next">Next picture</button>
+          <label class="btn btn--upload">Load picture<input class="btn--upload-file" type="file"></input></label>
+          <button class="btn btn--save">Save picture</button>
+        </div>
+        <img
+          class="editor__image"
+          src="assets/images/img.jpg"
+          alt="filtering image"
+        />
+      </div>
+    </main>
+    <aside class="fullscreen">
+      <button
+        class="btn btn--fullscreen"
+        aria-label="open fullscreen & close fullscreen"
+      ></button>
+    </aside>
+    <footer class="footer">
+      <div class="footer__container">
+        <a class="github" href="https://github.com/moonheiz">github</a>
+        <a
+          class="rss"
+          href="https://rs.school/js/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="rss__year">'21</span>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
