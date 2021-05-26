@@ -19,15 +19,8 @@ const fileSaveHandler = () => {
   img.addEventListener('load', () => {
     canvas.width = img.width;
     canvas.height = img.height;
-
-    let blurHeight;
-    if (img.height > img.naturalHeight) {
-      blurHeight = img.height / img.naturalHeight;
-    } else {
-      blurHeight = img.naturalHeight / img.height;
-    }
-
-    ctx.filter = `blur(${+controlElements.blur.value * blurHeight}px) invert(${
+    console.log(controlElements.blur.value * (img.height / img.naturalHeight));
+    ctx.filter = `blur(${controlElements.blur.value * (img.height / img.naturalHeight)}px) invert(${
       controlElements.invert.value / 100
     }) sepia(${controlElements.sepia.value}) saturate(${controlElements.saturate.value / 100}) hue-rotate(${
       controlElements.hueRotate.value
@@ -130,13 +123,13 @@ const nextHandler = async () => {
   let time = '';
 
   if (currentDate < 6) {
-    return imagesLink + 'night';
+    time = 'night';
   } else if (currentDate < 12) {
-    return imagesLink + 'morning';
+    time = 'morning';
   } else if (currentDate < 18) {
-    return imagesLink + 'day';
+    time = 'day';
   } else if (currentDate < 24) {
-    return imagesLink + 'evening';
+    time = 'evening';
   }
 
   const response = await fetch(
